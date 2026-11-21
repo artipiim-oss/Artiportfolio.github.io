@@ -324,7 +324,53 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--white); outline
 .view-t .hspot::before { background: var(--coral); }
 .view-t .hspot::after { border-color: var(--coral); }
 .view-t .hspot[aria-pressed="true"]::before { background: var(--white); border-color: var(--coral); }
-
+.view-h .hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 320px);
+  gap: 28px;
+  align-items: center;
+  padding-block: 44px 32px;
+}
+.view-h .hero-copy { display: grid; gap: 18px; }
+.view-h .hero-copy h1 { font-size: clamp(32px, 5.4vw, 56px); font-weight: 700; max-width: 18ch; }
+.view-h .hero-copy h1 em { font-style: normal; color: var(--coral); }
+.view-h .hero-copy h1 em.s {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--coral);
+  text-decoration-thickness: 4px;
+  text-underline-offset: .1em;
+}
+.view-h .intro-card {
+  background: var(--navy-2);
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+.view-h .intro-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  display: block;
+}
+.view-h .intro-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  padding-inline: 4px;
+}
+.view-h .intro-meta strong { color: var(--white); font-family: var(--font-display); }
+@media (max-width: 780px) {
+  .view-h .hero-split { grid-template-columns: minmax(0, 1fr); }
+  .view-h .intro-card { max-width: 320px; }
+}
 </style>
 <header class="site-bar"><div class="in">
   <a class="brand" id="brand" href="#home">YOUR<span>NAME</span></a>
