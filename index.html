@@ -5,20 +5,54 @@
 <style>
 /* Layout: sticky top bar switches three views (home, services, training). Each view is one column. */
 :root {
-  --navy: #FFFFFF;
-  --navy-2: #ECFDF5;
-  --navy-3: #D1FAE5;
-  --line: #A7F3D0;
-  --white: #064E3B;
-  --muted: #047857;
-  --blue: #059669;
-  --coral: #F97316;
-  --green: #10B981;
+  --navy: #FFFFFF;        /* Pure white main background */
+  --navy-2: #ECFDF5;      /* Soft emerald-tinted cards & panels */
+  --navy-3: #D1FAE5;      /* Active card / hover surface */
+  --line: #A7F3D0;        /* Emerald border & divider lines */
+  --white: #064E3B;       /* Deep emerald headings & primary text */
+  --muted: #047857;       /* Medium emerald body & secondary text */
+  --blue: #059669;        /* Emerald active tabs & badges */
+  --coral: #F97316;       /* Vibrant tangerine primary accent */
+  --green: #F97316;       /* Tangerine secondary CTA / highlights */
   --accent: #F97316;
-  --ink: #FFFFFF;
+  --ink: #FFFFFF;         /* Crisp white text on tangerine buttons */
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
+}
+
+/* Primary Buttons: Tangerine fill with White text */
+.view-s .btn.coral,
+.view-s .btn.green,
+.view-t .btn.coral,
+.view-t .btn.green,
+.fab {
+  background: #F97316;
+  color: #FFFFFF;
+}
+
+/* Secondary Buttons: White fill with Emerald border & text */
+.view-s .btn.blue,
+.view-s .btn.ghost,
+.view-t .btn.blue,
+.view-t .btn.ghost {
+  background: #FFFFFF;
+  color: #064E3B;
+  border: 1.5px solid #059669;
+  box-shadow: none;
+}
+
+.view-s .btn.blue:hover,
+.view-s .btn.ghost:hover,
+.view-t .btn.blue:hover,
+.view-t .btn.ghost:hover {
+  background: #ECFDF5;
+}
+
+/* Active navigation tab in Emerald with White text */
+.tabs a[aria-current="page"] {
+  background: #064E3B;
+  color: #FFFFFF;
 }
 .view-s *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
@@ -339,8 +373,27 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--white); outline
 .tabs a[aria-current="page"] { background: var(--white); color: var(--ink); }
 .view-s .pill[aria-pressed="true"], .view-t .pill[aria-pressed="true"] { background: var(--white); border-color: var(--white); color: var(--ink); }
 .view-s .btn.blue, .view-t .btn.blue { box-shadow: inset 0 0 0 1.5px var(--line); }
-.view-h .hero h1 em.s { color: var(--white); text-decoration: underline; text-decoration-color: var(--coral); text-decoration-thickness: 4px; text-underline-offset: .1em; }
-.view-t .hero h1 em { color: var(--coral); }
+.view-h .intro-card {
+  margin: 0;
+  background: #FFFFFF;
+  border: 2px solid #A7F3D0;
+  border-bottom: 6px solid #F97316;
+  border-radius: 18px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 16px 36px rgba(6, 78, 59, 0.10);
+}
+
+.view-h .intro-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+  display: block;
+}
+  .view-t .hero h1 em { color: var(--coral); }
 .view-t .hspot::before { background: var(--coral); }
 .view-t .hspot::after { border-color: var(--coral); }
 .view-t .hspot[aria-pressed="true"]::before { background: var(--white); border-color: var(--coral); }
@@ -354,7 +407,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--white); outline
 <div class="wrap">
   <div class="hero-split">
     <div class="hero-copy">
-      <p class="eyebrow">Arti Dhiman · Mohali, Chandigarh &amp; Panchkula or Online across India</p>
+      <p class="eyebrow">Arti Dhiman &amp; Panchkula or Online across India</p>
       <h1>Do you want more <em>customers</em>, or a marketing <em class="s">career</em>?</h1>
       <p class="lead">Pick the path that fits you across Mohali, Chandigarh &amp; Panchkula or Online across India. Each one has its own animated demos, small tools and a way to message me directly.</p>
     </div>
