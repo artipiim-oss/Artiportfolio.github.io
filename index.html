@@ -1041,7 +1041,7 @@
     }
 
     .handle::after {
-      content: "94";
+      content: "\2194";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -2345,7 +2345,6 @@
         camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
         camera.position.z = 6.5;
 
-        // Subtle wireframe growth wave mesh
         var geo = new THREE.PlaneGeometry(18, 11, 36, 22);
         geo.rotateX(-Math.PI * 0.36);
         var pos = geo.attributes.position;
@@ -2368,7 +2367,6 @@
         grid.position.set(1.2, -1.8, -2.5);
         scene.add(grid);
 
-        // Luminous conversion node particles
         var pCount = 140;
         var pPositions = new Float32Array(pCount * 3);
         var pColors = new Float32Array(pCount * 3);
@@ -2480,7 +2478,6 @@
         });
       }
 
-      // 3D tilt hover on architectural cards
       document.querySelectorAll(".tilt-card").forEach(function (el) {
         el.addEventListener("pointermove", function (e) {
           var rect = el.getBoundingClientRect();
@@ -2493,7 +2490,6 @@
         });
       });
 
-      // Subtle magnetic pull on primary/secondary buttons
       document.querySelectorAll(".magnetic").forEach(function (btn) {
         btn.addEventListener("pointermove", function (e) {
           var rect = btn.getBoundingClientRect();
@@ -2796,12 +2792,10 @@
         if (phone.replace(/\D/g, "").length < 10) { err.textContent = "Enter a 10-digit phone number."; $("qPhone").focus(); return; }
         err.textContent = "";
         var biz = $("qBiz").value.trim(), q = $("qText").value.trim();
-        lastMsg = "Hi, I'm " + name + ".
-" + (biz ? "Business: " + biz + "
-" : "") + "Location: " + CONFIG.location + "
-Roadblock: " + $("qProblem").value + "
-" + (q ? "Query: " + q + "
-" : "") + "My number: " + phone;
+        lastMsg = `Hi, I'm ${name}.
+${biz ? `Business: ${biz}\n` : ""}Location: ${CONFIG.location}
+Roadblock: ${$("qProblem").value}
+${q ? `Query: ${q}\n` : ""}My number: ${phone}`;
         $("copybox").textContent = lastMsg;
         $("sendWa").href = waLink(lastMsg);
         $("result").hidden = false;
@@ -2986,12 +2980,11 @@ Roadblock: " + $("qProblem").value + "
         if (phone.replace(/\D/g, "").length < 10) { err.textContent = "Enter a 10-digit phone number."; $("qPhone").focus(); return; }
         err.textContent = "";
         var q = $("qText").value.trim();
-        lastMsg = "Hi, I'm " + name + ".
-Right now: " + $("qNow").value + "
-Goal: " + $("qGoal").value + "
-Location: " + CONFIG.location + "
-" + (q ? "Question: " + q + "
-" : "") + "My number: " + phone;
+        lastMsg = `Hi, I'm ${name}.
+Right now: ${$("qNow").value}
+Goal: ${$("qGoal").value}
+Location: ${CONFIG.location}
+${q ? `Question: ${q}\n` : ""}My number: ${phone}`;
         $("copybox").textContent = lastMsg;
         $("sendWa").href = waLink(lastMsg);
         $("result").hidden = false;
